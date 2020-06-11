@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/style.css">
+    <script src="https://kit.fontawesome.com/115d8c3238.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&family=Work+Sans:wght@500&display=swap"
+    rel="stylesheet">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+  <body>
+      <div class="boxDay">
+    <div class="boxNight"> 
+    <div class="box">
+    <div class="container"></div>
+        <div class="row">
+            <div class= "col">
+                <form class="search" id="search-form">
+                <input type="search" placeholder="Find your city" autofocus="on" id="searchQuery"/>
+                <input id = "searchButton" type="submit" value="Search" />
+                <button id="currentButton">Current</button>
+             </form>
+    <span id="mainCity">
+         <h1 ></h1>
+         <h4 id= "dayDetails">
+             <ul>
+                 <li> Humidity: <span id="humidity"></span>%
+                 </li>
+                <li> Wind: <span id="wind"></span>km/h
+                </li>
+             </ul>
+         </h4>
+</span>
+        </div>
+    <div class= "col">
+    <div class="mainBox">
+    <h2 id="currentDate"> </h2>
+        <div class="mainweather"> <i class="fas fa-sun"></i></div>
+        <h3><span id= "dayTemperature"></span>
+        <span class="units"> <a href="a" id="Celcius-link"> C°</href></a>|<a href="a" id="Fahrenheit-link"> F°</href></a> </span>
+        </br>
+        <span id= "todayType"></span>
+    </h3>
+    </div>
+    </div>
+    </div>
+    <div class="week">
+
+        <div class= "row">
+            <div class= "col-sm">
+                Monday</br>
+                <i class="fas fa-bolt"></i>
+                </br>19°
+            </div>
+            <div class= "col-sm">
+                Tuesday</br>
+                <i class="fas fa-wind"></i>
+                </br>19°
+            </div>
+            <div class="col-sm">
+                Wednesday</br>
+                <i class="fas fa-sun"></i>
+                </br>19°
+            </div>
+            <div class="col-sm">
+                Thursday</br>
+                <i class="fas fa-cloud"></i>
+                </br>19°
+            </div>
+            <div class="col-sm">
+                Friday</br>
+                <i class="fas fa-cloud-sun"></i>
+                </br>19°
+            </div>
+            <div class="col-sm">
+                Saturday</br>
+                <i class="fas fa-cloud-showers-heavy"></i>
+                </br>19°
+            </div>
+            <div class="col-sm">
+                Sunday</br>
+                <i class="fas fa-cloud-rain"></i>
+                </br>19°
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+    <script src="src/script.js">
+    import axios from "axios";
+
+    </script>
+
+</body>
+</html>

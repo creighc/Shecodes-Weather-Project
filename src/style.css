@@ -1,0 +1,75 @@
+body {
+  font-family: "Quicksand", sans-serif;
+  position: relative;
+}
+.box {
+  padding-top: 100;
+  border-radius: 5px;
+  position: relative;
+}
+
+#mainCity {
+  display: block;
+  position: relative;
+  right: 0;
+  top: 0;
+  text-align: center;
+  padding: 10px;
+  border-width: 5px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #82c4c3;
+  height: 75%;
+  position: relative;
+}
+
+ul {
+  list-style-type: none;
+  text-align: left;
+  font-size: 20px;
+  position: relative;
+}
+form {
+  padding: 10px;
+}
+
+.mainBox {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  border-width: 5px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #82c4c3;
+  position: relative;
+}
+.mainweather {
+  padding-top: 100;
+  font-size: 60px;
+  display: inline;
+  position: relative;
+}
+.dayTemperature {
+  font-size: 60px;
+}
+i {
+  font-size: 40px;
+  color: #f9748f;
+  position: relative;
+}
+
+.week {
+  display: block;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  position: relative;
+}
+#searchButton {
+  background-color: #82c4c3;
+}
+
+#current {
+  background-color: #f9d89c;
+}
