@@ -14,75 +14,82 @@
 </head>
   <body>
     <div class="container">
+    <div class="box">
     <div class="boxDay">
     <div class="boxNight"> 
-    <div class="box">
         <div class="row">
-            <div class= "col-6">
+            <div class= "searchBar"
                 <form class="search" id="search-form">
                 <input type="search" placeholder="Find your city" autofocus="on" id="searchQuery"/>
                 <input id = "searchButton" type="submit" value="Search" />
                 <button id="currentButton">Current</button>
              </form>
+        </div>
+            </div>
+         <div class="row">
+         <div class="col-6">
+
     <span id="mainCity">
          <h1 ></h1>
-         <h4 id= "dayDetails">
-             <ul>
-                 <li> Humidity: <span id="humidity"></span>%
-                 </li>
-                <li> Wind: <span id="wind"></span>km/h
-                </li>
-             </ul>
-         </h4>
-</span>
+        <div class="row">
+         <div class="col">
+        <div class="mainweather"> <i class="fas fa-sun"></i></div>
+         </div>
+        <div class="col">
+        </br>
+        <h3><span id="dayTemperature"></span>
+            <span class="units"> <a href="a" id="Celcius-link"> °C </href></a>|<a href="a" id="Fahrenheit-link"> °F</href></a>
+            </span>
+             </br>
+            <span id="todayType"></span>
+        </h3>
         </div>
+        </div>
+    </span>
+     </div>
     <div class= "col-6">
     <div class="mainBox">
     <h2 id="currentDate"> </h2>
-        <div class="mainweather"> <i class="fas fa-sun"></i></div>
-        <h3><span id= "dayTemperature"></span>
-        <span class="units"> <a href="a" id="Celcius-link"> °C</href></a>|<a href="a" id="Fahrenheit-link"> °F</href></a> </span>
-        </br>
-        <span id= "todayType"></span>
-    </h3>
+    </br>
+        <h4 id="dayDetails">
+            <ul>
+                <li> Humidity: <span id="humidity"></span>%
+                </li>
+                <li> Wind: <span id="wind"></span>km/h
+                </li>
+            </ul>
+        </h4>
     </div>
     </div>
     </div>
     <div class="week">
         <div class= "row">
-            <div class= "col-sm">
-                Monday</br>
-                <i class="fas fa-bolt"></i>
+            <div class= "col-sm">Monday</br>
+                <i class="fas fa-bolt" id ="weekDay"></i>
                 </br>19°
             </div>
-            <div class= "col-sm">
-                Tuesday</br>
-                <i class="fas fa-wind"></i>
+            <div class= "col-sm">Tuesday</br>
+                <i class="fas fa-wind" id ="weekDay"></i>
                 </br>19°
             </div>
-            <div class="col-sm">
-                Wednesday</br>
-                <i class="fas fa-sun"></i>
+            <div class="col-sm">Wednesday</br>
+                <i class="fas fa-sun" id ="weekDay"></i>
                 </br>19°
             </div>
-            <div class="col-sm">
-                Thursday</br>
-                <i class="fas fa-cloud"></i>
+            <div class="col-sm">Thursday</br>
+                <i class="fas fa-cloud" id ="weekDay"></i>
                 </br>19°
             </div>
-            <div class="col-sm">
-                Friday</br>
-                <i class="fas fa-cloud-sun"></i>
+            <div class="col-sm">Friday</br>
+                <i class="fas fa-cloud-sun" id ="weekDay"></i>
                 </br>19°
             </div>
-            <div class="col-sm">
-                Saturday</br>
-                <i class="fas fa-cloud-showers-heavy"></i>
+            <div class="col-sm">Saturday</br>
+                <i class="fas fa-cloud-showers-heavy" id ="weekDay"></i>
                 </br>19°
             </div>
-            <div class="col-sm">
-                Sunday</br>
-                <i class="fas fa-cloud-rain"></i>
+            <div class="col-sm" >Sunday</br>
+                <i class="fas fa-cloud-rain" id ="weekDay"></i>
                 </br>19°
             </div>
         </div>

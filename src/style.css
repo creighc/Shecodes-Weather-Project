@@ -14,6 +14,11 @@ body {
   border-color: #82c4c3;
 }
 
+.searchBar {
+  display: block;
+  margin-left: 25px;
+}
+
 #mainCity {
   display: block;
   position: relative;
@@ -45,15 +50,15 @@ form {
   position: relative;
 }
 .mainweather {
-  padding-top: 100;
-  font-size: 60px;
+  font-size: 80px;
   display: inline;
-  position: relative;
+  color: #f9748f;
 }
 .dayTemperature {
   font-size: 60px;
+  text-align: center;
 }
-i {
+#weekDay {
   font-size: 40px;
   color: #f9748f;
   position: relative;
@@ -70,6 +75,6 @@ i {
   background-color: #82c4c3;
 }
 
-#current {
+#currentButton {
   background-color: #f9d89c;
 }
