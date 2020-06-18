@@ -3,9 +3,15 @@ body {
   position: relative;
 }
 .box {
-  padding-top: 100;
+  padding-top: 20px;
   border-radius: 5px;
   position: relative;
+  max-width: 600px;
+  margin: 30px auto;
+  border-width: 5px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #82c4c3;
 }
 
 #mainCity {
@@ -13,14 +19,11 @@ body {
   position: relative;
   right: 0;
   top: 0;
-  text-align: center;
+  text-align: left;
   padding: 10px;
-  border-width: 5px;
-  border-radius: 5px;
-  border-style: solid;
-  border-color: #82c4c3;
   height: 75%;
   position: relative;
+  margin-bottom: 0;
 }
 
 ul {
@@ -28,6 +31,8 @@ ul {
   text-align: left;
   font-size: 20px;
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 form {
   padding: 10px;
@@ -37,11 +42,6 @@ form {
   display: block;
   text-align: center;
   padding: 10px;
-  border-radius: 5px;
-  border-width: 5px;
-  border-radius: 5px;
-  border-style: solid;
-  border-color: #82c4c3;
   position: relative;
 }
 .mainweather {
