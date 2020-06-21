@@ -14,7 +14,7 @@ body {
   border-color: #82c4c3;
 }
 
-.searchBar {
+.queryBar {
   display: block;
   margin-left: 25px;
 }
@@ -82,4 +82,8 @@ form {
 h6 {
   max-width: 600px;
   margin: 30px auto;
+}
+
+#todayType {
+  text-transform: capitalize;
 }
