@@ -49,7 +49,7 @@ function convertToFahrenheit(event) {
   let temperatureElement = document.querySelector("#dayTemperature");
   let temperature = temperatureElement.innerHTML;
   temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round(temperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
 }
 let fahrenheit = document.querySelector("#Fahrenheit-link");
 fahrenheit.addEventListener("click", convertToFahrenheit);
@@ -59,17 +59,11 @@ function convertToCelcius(event) {
   let temperatureElement = document.querySelector("#dayTemperature");
   let temperature = temperatureElement.innerHTML;
   temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round((temperature - 32) * 5) / 9;
+  temperatureElement.innerHTML = Math.round(((temperature - 32) * 5) / 9);
 }
 
 let celcius = document.querySelector("#Celcius-link");
 celcius.addEventListener("click", convertToCelcius);
-
-function searchCity(cityInput) {
-  let apiKey = "1ed0e5ac9db3bedb50c4d9ca63aebd2e";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayWeatherCondition);
-}
 
 function displayWeatherCondition(response) {
   document.querySelector("h1").innerHTML = response.data.name;
@@ -91,9 +85,53 @@ function displayWeatherCondition(response) {
   document
     .querySelector("#mainIcon")
     .setAttribute("alt", response.data.weather[0].description);
-
-  console.log(response.data);
 }
+
+function searchCity(cityInput) {
+  let apiKey = "1ed0e5ac9db3bedb50c4d9ca63aebd2e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeatherCondition);
+  let apiurlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&appid=${apiKey}&units=metric`;
+  axios.get(apiurlForecast).then(displayForecast);
+}
+
+function displayForecast(response) {
+  let forecast = response.data.list[0];
+  console.log(forecast);
+
+  document.querySelector("week").innerHTML = `<div class= "row">
+            <div class= "col-sm">Mon</br>
+                <i class="fas fa-bolt" id ="weekDay"></i>
+                <img src="" alt="" id="monIcon">
+                </br><strong>${forecast.main.temp_max}°</strong>19°
+            </div>
+            <div class= "col-sm">Tues</br>
+                <i class="fas fa-wind" id ="weekDay"></i>
+                </br>19°
+            </div>
+            <div class="col-sm">Wed</br>
+                <i class="fas fa-sun" id ="weekDay"></i>
+                </br>19°
+            </div>
+            <div class="col-sm">Thurs</br>
+                <i class="fas fa-cloud" id ="weekDay"></i>
+                </br>19°
+            </div>
+            <div class="col-sm">Fri</br>
+                <i class="fas fa-cloud-sun" id ="weekDay"></i>
+                </br>19°
+            </div>
+            <div class="col-sm">Sat</br>
+                <i class="fas fa-cloud-showers-heavy" id ="weekDay"></i>
+                </br>19°
+            </div>
+            <div class="col-sm" >Sun</br>
+                <i class="fas fa-cloud-rain" id ="weekDay"></i>
+                </br>19°
+            </div>
+        </div>`;
+}
+searchCity("Boston");
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -107,14 +145,12 @@ function searchLocation(position) {
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSubmit);
-
-searchCity("Boston");
-
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 let currentlocationButton = document.querySelector("#currentButton");
-currentlocationButton.addEventListener.apply("click".getCurrentLocation);
+currentlocationButton.addEventListener("click", getCurrentLocation);
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
