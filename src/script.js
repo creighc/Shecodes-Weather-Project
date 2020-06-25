@@ -27,7 +27,7 @@ function formatDate() {
   let Month = Months[now.getMonth()];
   let date = now.getDate();
   let year = now.getFullYear();
-  return `Today, ${Day}</br> ${Month} ${date}, ${year}`;
+  return `${Day}</br> ${Month} ${date}, ${year}`;
 
   let weekDay = Days[now.getDay()];
   let dayElement = document.querySelector("#day");
