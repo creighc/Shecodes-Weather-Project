@@ -64,7 +64,7 @@ form {
   position: relative;
 }
 
-.week {
+#week {
   display: block;
   text-align: center;
   border-radius: 5px;

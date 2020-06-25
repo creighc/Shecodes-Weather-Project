@@ -44,6 +44,8 @@ if (7 <= currentTime && currentTime < 20) {
   }
 }
 
+function formatHours(timestamp) {}
+
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#dayTemperature");
@@ -97,13 +99,15 @@ function searchCity(cityInput) {
 
 function displayForecast(response) {
   let forecast = response.data.list[0];
-  console.log(forecast);
-
-  document.querySelector("week").innerHTML = `<div class= "row">
+  document.querySelector("#week").innerHTML = `
             <div class= "col-sm">Mon</br>
                 <i class="fas fa-bolt" id ="weekDay"></i>
-                <img src="" alt="" id="monIcon">
-                </br><strong>${forecast.main.temp_max}°</strong>19°
+                <img src="http://openweathermap.org/img/wn/${
+                  forecast.weather[0].icon
+                }@2x.png" alt="" id="monIcon">
+                </br><strong>${Math.round(
+                  forecast.main.temp_max
+                )}°</strong> ${Math.round(forecast.main.temp_min)}°
             </div>
             <div class= "col-sm">Tues</br>
                 <i class="fas fa-wind" id ="weekDay"></i>
@@ -128,8 +132,13 @@ function displayForecast(response) {
             <div class="col-sm" >Sun</br>
                 <i class="fas fa-cloud-rain" id ="weekDay"></i>
                 </br>19°
-            </div>
-        </div>`;
+            </div>`;
+
+  forecast = response.data.list[1];
+  document.querySelector("#week").innerHTML += `
+  `;
+
+  console.log(forecast);
 }
 searchCity("Boston");
 
