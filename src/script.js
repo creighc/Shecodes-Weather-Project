@@ -50,27 +50,6 @@ if (7 <= currentTime && currentTime < 20) {
 
 function formatHours(timestamp) {}
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#dayTemperature");
-  let temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
-}
-let fahrenheit = document.querySelector("#Fahrenheit-link");
-fahrenheit.addEventListener("click", convertToFahrenheit);
-
-function convertToCelcius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#dayTemperature");
-  let temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round(((temperature - 32) * 5) / 9);
-}
-
-let celcius = document.querySelector("#Celcius-link");
-celcius.addEventListener("click", convertToCelcius);
-
 function displayWeatherCondition(response) {
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#dayTemperature").innerHTML = Math.round(
@@ -91,6 +70,7 @@ function displayWeatherCondition(response) {
   document
     .querySelector("#mainIcon")
     .setAttribute("alt", response.data.weather[0].description);
+  celsiusTemperature = response.data.main.temp;
 }
 
 function searchCity(cityInput) {
@@ -99,6 +79,30 @@ function searchCity(cityInput) {
   axios.get(apiUrl).then(displayWeatherCondition);
   let apiurlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&appid=${apiKey}&units=metric`;
   axios.get(apiurlForecast).then(displayForecast);
+}
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#dayTemperature");
+  let temperature = temperatureElement.innerHTML;
+  temperature = Number(temperature);
+  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+  fahrenheit.classList.add("active");
+  celcius.classList.remove("active");
+}
+let fahrenheit = document.querySelector("#Fahrenheit-link");
+fahrenheit.addEventListener("click", convertToFahrenheit);
+let celcius = document.querySelector("#Celcius-link");
+celcius.addEventListener("click", convertToCelcius);
+
+function convertToCelcius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#dayTemperature");
+  let temperature = temperatureElement.innerHTML;
+  temperature = Number(temperature);
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  fahrenheit.classList.remove("active");
+  celcius.classList.add("active");
 }
 
 function formatForecastDate(timestamp) {
@@ -127,6 +131,7 @@ function displayForecast(response) {
                 )}°</strong> ${Math.round(forecast.main.temp_min)}°
             </div>`;
   }
+  console.log(response);
 }
 searchCity("Boston");
 

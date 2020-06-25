@@ -87,3 +87,11 @@ h6 {
 #todayType {
   text-transform: capitalize;
 }
+
+#units .active {
+  color: #f9748f;
+}
+
+a {
+  color: black;
+}
