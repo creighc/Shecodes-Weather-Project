@@ -28,6 +28,10 @@ function formatDate() {
   let date = now.getDate();
   let year = now.getFullYear();
   return `Today, ${Day}</br> ${Month} ${date}, ${year}`;
+
+  let weekDay = Days[now.getDay()];
+  let dayElement = document.querySelector("#day");
+  dayElement.innerHTML = `${weekDay}`;
 }
 
 let currentDay = document.querySelector("#currentDate");
@@ -97,48 +101,32 @@ function searchCity(cityInput) {
   axios.get(apiurlForecast).then(displayForecast);
 }
 
+function formatForecastDate(timestamp) {
+  let date = new Date(timestamp);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  let weekDay = days[date.getDay()];
+  return weekDay;
+}
+
 function displayForecast(response) {
-  let forecast = response.data.list[0];
-  document.querySelector("#week").innerHTML = `
-            <div class= "col-sm">Mon</br>
-                <i class="fas fa-bolt" id ="weekDay"></i>
+  let forecastElement = document.querySelector("#week");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 7; index < 40; index += 8) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+            <div class= "col-2"> <h4>${formatForecastDate(
+              forecast.dt * 1000
+            )}</h4> </br>
                 <img src="http://openweathermap.org/img/wn/${
                   forecast.weather[0].icon
-                }@2x.png" alt="" id="monIcon">
+                }@2x.png" alt="" id="weekDay">
                 </br><strong>${Math.round(
                   forecast.main.temp_max
                 )}°</strong> ${Math.round(forecast.main.temp_min)}°
-            </div>
-            <div class= "col-sm">Tues</br>
-                <i class="fas fa-wind" id ="weekDay"></i>
-                </br>19°
-            </div>
-            <div class="col-sm">Wed</br>
-                <i class="fas fa-sun" id ="weekDay"></i>
-                </br>19°
-            </div>
-            <div class="col-sm">Thurs</br>
-                <i class="fas fa-cloud" id ="weekDay"></i>
-                </br>19°
-            </div>
-            <div class="col-sm">Fri</br>
-                <i class="fas fa-cloud-sun" id ="weekDay"></i>
-                </br>19°
-            </div>
-            <div class="col-sm">Sat</br>
-                <i class="fas fa-cloud-showers-heavy" id ="weekDay"></i>
-                </br>19°
-            </div>
-            <div class="col-sm" >Sun</br>
-                <i class="fas fa-cloud-rain" id ="weekDay"></i>
-                </br>19°
             </div>`;
-
-  forecast = response.data.list[1];
-  document.querySelector("#week").innerHTML += `
-  `;
-
-  console.log(forecast);
+  }
 }
 searchCity("Boston");
 
