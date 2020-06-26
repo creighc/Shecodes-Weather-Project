@@ -27,7 +27,7 @@ function formatDate() {
   let Month = Months[now.getMonth()];
   let date = now.getDate();
   let year = now.getFullYear();
-  return `${Day}</br> ${Month} ${date}, ${year}`;
+  return `${Day}</br> ${Month} ${date},${year}`;
 
   let weekDay = Days[now.getDay()];
   let dayElement = document.querySelector("#day");
@@ -36,17 +36,6 @@ function formatDate() {
 
 let currentDay = document.querySelector("#currentDate");
 currentDay.innerHTML = formatDate(currentDay);
-
-var currentTime = new Date().getHours();
-if (7 <= currentTime && currentTime < 20) {
-  if (document.body) {
-    document.body.className = "boxDay";
-  }
-} else {
-  if (document.body) {
-    document.body.className = "boxNight";
-  }
-}
 
 function formatHours(timestamp) {}
 
@@ -119,19 +108,16 @@ function displayForecast(response) {
 
   for (let index = 7; index < 40; index += 8) {
     forecast = response.data.list[index];
-    forecastElement.innerHTML += `
-            <div class= "col-2"> <h4>${formatForecastDate(
-              forecast.dt * 1000
-            )}</h4> </br>
-                <img src="http://openweathermap.org/img/wn/${
-                  forecast.weather[0].icon
-                }@2x.png" alt="" id="weekDay">
-                </br><strong>${Math.round(
+    forecastElement.innerHTML += `<div class="col-sm"><h4>${formatForecastDate(
+      forecast.dt * 1000
+    )}</h4><img src="http://openweathermap.org/img/wn/${
+      forecast.weather[0].icon
+    }@2x.png" alt="" id="weekDay">
+                <strong>${Math.round(
                   forecast.main.temp_max
                 )}°</strong> ${Math.round(forecast.main.temp_min)}°
             </div>`;
   }
-  console.log(response);
 }
 searchCity("Boston");
 
