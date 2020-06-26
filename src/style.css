@@ -109,20 +109,15 @@ a {
 
 .mainBox {
   display: block;
-  text-align: center;
+  text-align: right;
   padding: 10px;
   position: relative;
 }
 
-h2 {
-  font-size: 25px;
-}
-
 ul {
   list-style-type: none;
-  text-align: left;
+  text-align: right;
   font-size: 20px;
-  position: relative;
   margin: 0;
   padding: 0;
 }
