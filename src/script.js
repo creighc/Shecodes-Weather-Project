@@ -75,7 +75,7 @@ function convertToFahrenheit(event) {
   let temperatureElement = document.querySelector("#dayTemperature");
   let temperature = temperatureElement.innerHTML;
   temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+  temperatureElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
   fahrenheit.classList.add("active");
   celcius.classList.remove("active");
 }
@@ -93,6 +93,8 @@ function convertToCelcius(event) {
   fahrenheit.classList.remove("active");
   celcius.classList.add("active");
 }
+
+let celsiusTemperature = null;
 
 function formatForecastDate(timestamp) {
   let date = new Date(timestamp);
